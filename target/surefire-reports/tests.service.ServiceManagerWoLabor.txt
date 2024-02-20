@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: tests.service.ServiceManagerWoLabor
+-------------------------------------------------------------------------------
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 921.828 s - in tests.service.ServiceManagerWoLabor
