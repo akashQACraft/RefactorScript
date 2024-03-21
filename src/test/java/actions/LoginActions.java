@@ -40,7 +40,7 @@ public class LoginActions extends TestDriverActions {
 
         }*/
 
-        return appUrl;
+      return appUrl;
     }
    /** new metnod Akash*/
     public static String getAppUrl1(String className) throws IOException {     //Method to get Url from commomd line
@@ -51,7 +51,7 @@ public class LoginActions extends TestDriverActions {
            appProp = new Properties();
         appProp.load(new FileInputStream(new File(configFileName)));
         appUrl=appProp.getProperty("url");
-
+        System.out.println("Enter the browser sucessfully  :"+appUrl );
         return  appUrl;
     }
     public String[] getUserCredentials() throws IOException {

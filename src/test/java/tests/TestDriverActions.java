@@ -49,6 +49,7 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import static actions.LoginActions.getAppUrl1;
 import static org.apache.xalan.xsltc.runtime.CallFunction.className;
 
 public class TestDriverActions {
@@ -99,7 +100,7 @@ public class TestDriverActions {
 
     public SugestedOrderReporttrucatePartNumber reportrestockorreorder;
 
-
+   public OrganizeFavoritesArrowsNotWorking americanbody;
 
 
     LoginActions loginActions;
@@ -208,8 +209,6 @@ public class TestDriverActions {
 
 }
 
-
-
     /**
      * Initialization of Framework
      */
@@ -218,15 +217,10 @@ public class TestDriverActions {
     public void initialization() throws IOException, InterruptedException {
 
          String browserName = DataActions.getReuseActions().getCellData(SheetConstants.loginSheetPath, SheetConstants.sheetNameForFrameworkConfig, SheetConstants.columnForBrowser,SheetConstants.browserRowNumber);
-        //String browserName=LoginActions.getAppUrl1(className);
-       // String browserName= loginActions.getAppUrl1(getMyClassName());
-         // String browserName="Chrome";
-         //driver.get(LoginActions.getAppUrl1(getMyClassName()));
 
 //        System.getProperty(("user.dir") +"\\log4j.xml");
 //        DOMConfigurator.configure("D:\\intellij\\latest_OfficeWork\\WorkingProject\\Emdecs_Test_Automation\\log4j.xml");
-         //   if (browserName.equalsIgnoreCase("Chrome")) {
-           if (browserName.equalsIgnoreCase(browserName)) {
+         if (browserName.equalsIgnoreCase(browserName)) {
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
             ChromeOptions options = new ChromeOptions();
             chromePrefs.put("plugins.plugins_disabled", new String[] { "Chrome PDF Viewer" });
@@ -261,10 +255,10 @@ public class TestDriverActions {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
-        LoginActions loginActions = new LoginActions();
+         LoginActions loginActions = new LoginActions();
         if (LoginActions.environmentName.contains("QA") || LoginActions.environmentName.contains("EU") || LoginActions.environmentName.contains("EC") || LoginActions.environmentName.contains("NA")) {
 
-            driver.get(LoginActions.getAppUrl1(getMyClassName()));    //new method Akash kadam
+            driver.get(getAppUrl1(getMyClassName()));    //new method Akash kadam
         } else {
           driver.get(loginActions.getAppUrl());      //old method
 
@@ -311,7 +305,7 @@ public class TestDriverActions {
         overRideTaxes=PageFactory.initElements(driver,OverRideTaxesCauseOtherTaxDisappear.class);
         unabletoremovecorelink=PageFactory.initElements(driver,UnableToRemoveCoreLink_CONVOY.class);
         reportrestockorreorder= PageFactory.initElements(driver,SugestedOrderReporttrucatePartNumber.class);
-
+        americanbody= PageFactory.initElements(driver,OrganizeFavoritesArrowsNotWorking.class);
 
         loginPage.selectCountryFromDropDown();
 
@@ -519,6 +513,9 @@ public class TestDriverActions {
         else if (getClass().getCanonicalName().contains("SuggestedOrderReporttrucatePartNumber")) {
             folderPath = System.getProperty("user.dir") +"/allure-results/Reports/SuggestedOrderReporttrucatePartNumberReports/" + "__" + currentDateTime;
         }
+        else if (getClass().getCanonicalName().contains("OrganizeFavoritesArrowsNotWorking")) {
+            folderPath = System.getProperty("user.dir") +"/allure-results/Reports/OrganizeFavoritesArrowsNotWorkingReports/" + "__" + currentDateTime;
+        }
 
 
 
@@ -668,6 +665,9 @@ public class TestDriverActions {
             }
             else if (getClass().getCanonicalName().contains("SuggestedOrderReporttrucatePartNumber")) {
                 cmd = allurePathWin + " generate " + " " + System.getProperty("user.dir") + "\\allure-results -o" + " " + System.getProperty("user.dir") + "\\allure-results\\Reports\\SuggestedOrderReporttrucatePartNumberReports\\" + theDir.getName();
+            }
+            else if (getClass().getCanonicalName().contains("OrganizeFavoritesArrowsNotWorking")) {
+                cmd = allurePathWin + " generate " + " " + System.getProperty("user.dir") + "\\allure-results -o" + " " + System.getProperty("user.dir") + "\\allure-results\\Reports\\OrganizeFavoritesArrowsNotWorkingReports\\" + theDir.getName();
             }
 
 

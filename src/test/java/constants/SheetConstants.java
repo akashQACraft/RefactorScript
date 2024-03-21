@@ -18,7 +18,7 @@ public class SheetConstants {
 
 
     // List of row numbers for each data
-    public static final int browserRowNumber = 2;
+    public static final int browserRowNumber =2;
     public static final int envRowNumber = 2;
 
     public static final int role_admin_credentials_rowNumber = 2;
